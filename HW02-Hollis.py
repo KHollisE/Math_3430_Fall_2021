@@ -95,7 +95,9 @@ def scalar_vector_mult(n, vector_01):
 
 
 print(scalar_vector_mult(8, [10,20,25]))
+print("The answer should be [80,160,200]")
 print(scalar_vector_mult(4, [10,20,25]))
+print("The answer should be [40,80,100]")
 
 #Problem 02
 """
@@ -137,7 +139,9 @@ def scalar_matrix_mult(n, vector_01, vector_02, vector_03):
     return result
 
 print(scalar_matrix_mult(10, [1,2,3],[2,3,1],[4,5,6]))
-print(scalar_matrix_mult(5, [1,2,3],[2,3,1],[4,5,6])) 
+print("The answer should be [[10,20,30],[20,30,10],[40,50,60]]")
+print(scalar_matrix_mult(5, [1,2,3],[2,3,1],[4,5,6]))
+print("The answer should be [[5,10,15],[10,15,5],[20,25,30]")
 
 #Problem 03
 """
@@ -181,7 +185,9 @@ def matrix_addition(vector_a, vector_b, vector_c, vector_d, vector_e, vector_f):
 
 
 print(matrix_addition([2,5,6], [1,2,3], [5,1,3], [1,0,0], [0,1,0], [3,6,7]))
+print("The answer should be [[3, 5, 6], [1, 3, 3], [8, 7, 10]].")
 print(matrix_addition([10,5,1], [12,6,2], [4,5,6], [1,0,0], [0,1,0], [3,6,7]))
+print("The answer should be [[11, 5, 1], [12, 7, 2], [7, 11, 13]]")
 
 #Problem 04
 """
@@ -224,7 +230,9 @@ def matrix_vector_mult(x, y, z, vector_a, vector_b, vector_c):
     return result
 
 print(matrix_vector_mult(3, 5, 7, [1,2,3], [3,2,1], [2,1,3]))
+print("The answer should be [[15, 30, 45], [45, 30, 15], [30, 15, 45]]")
 print(matrix_vector_mult(2, 4, 6, [1,2,3], [3,2,1], [2,1,3]))
+print("The answer should be [[12, 24, 36], [36, 24, 12], [24, 12, 36]]")
 
 #Problem 05
 """
@@ -264,6 +272,10 @@ def matrix_mult(vector_01, vector_02, vector_03, vector_a, vector_b, vector_c):
     result.append(vector_c)
     return result
 
+print(matrix_mult([3,4,5], [1,2,7], [9,6,8], [1,2,3], [2,1,3], [3,2,1]))
+print("The answer should be [[3, 8, 15], [2, 2, 21], [27, 12, 8]]")
+print(matrix_mult([4,5,6], [7,8,9], [1,2,3], [2,1,3], [10,5,1], [3,2,1]))
+print("The answer should be [[8, 5, 18], [70, 40, 9], [3, 4, 3]]")
 
 #Test Inputs
 

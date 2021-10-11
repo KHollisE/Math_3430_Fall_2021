@@ -109,34 +109,28 @@ Q3: How do we get there?
 We split the matrix into vectors and then using the method from problem 1 we get the multiple of the vectors and then put them back into a matrix form
 
 Pseudocode:
-def scalar_matrix_mult(n, vector_01, vector_02, vector_03):
-#Set a matrix to the vectors.
-    matrix_a = [vector_01, vector_02, vector_03]
-#Make an empty set for the list
-    result = []
+def scalar_matrix_mult(n, matrix_a):
+#Make the result list
+    result = [scalar_vector_mult(n,matrix_a[0])]
 #Make a for loop for the scalar multiplication.
     for j in range(len(matrix_a)):
-            vector_01[j] *= n
-            vector_02[j] *= n
-            vector_03[j] *= n
+            y = scalar_vector_mult
 #Attach the new vectors  to the empty set.
-    result.append(vector_01)
-    result.append(vector_02)
-    result.append(vector_03)
+            result.append(y)
 #Return the desired result.
     return result
 """
 def scalar_matrix_mult(n, matrix_a):
-    result = scalar_vector_mult(n,matrix_a[0])
-    for x in range(len(matrix_a)):
+    result = [scalar_vector_mult(n,matrix_a[0])]
+    for x in range(1, len(matrix_a)):
         y = scalar_vector_mult(n, matrix_a[x])
-    result.append(y)
+        result.append(y)
     return result
 
-print(scalar_matrix_mult(10, [1,2,3],[2,3,1],[4,5,6]))
-print("The answer should be [[10,20,30],[20,30,10],[40,50,60]]")
-print(scalar_matrix_mult(5, [1,2,3],[2,3,1],[4,5,6]))
-print("The answer should be [[5,10,15],[10,15,5],[20,25,30]")
+print(scalar_matrix_mult(10, [[2,2],[4,4]]))
+print("The answer should be [[20,20],[40,40]]")
+print(scalar_matrix_mult(5, [[3,3],[5,5]])) 
+print("The answer should be [[15,15],[25,25]]")
 
 #Problem 03
 """
@@ -149,40 +143,29 @@ We set the matrices equal to the vectors that make them up and add the vectors t
 
 Pseudocode:
 def matrix_addition(vector_a, vector_b, vector_c, vector_d, vector_e, vector_f):
-#Set matrix_A as being the first three vectors, and matrix_B as being the last three vectors.
-    matrix_A = [vector_a, vector_b, vector_c]
-    matrix_B = [vector_d, vector_e, vector_f]
-#Make an empty set for the new values to be placed into.
+
+#Make list with the starting elements of the list given through the funciton add_vectors
     result = []
 #Complete the addition between the two 3x3 matrices.
-    for x in range(len(matrix_A)):
-        vector_a[x] += vector_d[x]
-        vector_b[x] += vector_e[x]
-        vector_c[x] += vector_f[x]
-#Attach the sum of the matrices to the empty set.
-    result.append(vector_a)
-    result.append(vector_b)
-    result.append(vector_c)
+    for x in range(1, len(matrix_A)):
+        y = add_vectors(matrix_A[x], matrix_B[x])
+#Attach the sum of the matrices to the result set.
+        result.append(y)
 #Return the desired result.
     return result
 """
-def matrix_addition(vector_a, vector_b, vector_c, vector_d, vector_e, vector_f):
-    matrix_A = [vector_a, vector_b, vector_c]
-    result = []
-    for x in range(len(matrix_A)):
-        vector_a[x] += vector_d[x]
-        vector_b[x] += vector_e[x]
-        vector_c[x] += vector_f[x]
-    result.append(vector_a)
-    result.append(vector_b)
-    result.append(vector_c)
+def matrix_addition(matrix_A, matrix_B):
+    result = [add_vectors(matrix_A[0],matrix_B[0])]
+    for x in range(1, len(matrix_A)):
+        y = add_vectors(matrix_A[x], matrix_B[x])
+        result.append(y)
     return result
 
 
-print(matrix_addition([2,5,6], [1,2,3], [5,1,3], [1,0,0], [0,1,0], [3,6,7]))
-print("The answer should be [[3, 5, 6], [1, 3, 3], [8, 7, 10]].")
-print(matrix_addition([10,5,1], [12,6,2], [4,5,6], [1,0,0], [0,1,0], [3,6,7]))
-print("The answer should be [[11, 5, 1], [12, 7, 2], [7, 11, 13]]")
+print(matrix_addition([[2,5], [1,2], [5,1]], [[1,0], [0,1], [3,6]]))
+print("The answer should be [[3, 5], [1, 3], [8, 7]]")
+print(matrix_addition([[10,5], [12,6], [4,5]], [[1,0], [0,1], [3,6]]))
+print("The answer should be [[11, 5], [12, 7], [7, 11]]")
 
 #Problem 04
 """
@@ -194,40 +177,29 @@ Q3: How do we get there?
 Using the algorithms from problems 0 and 1. We set the vector values as scalars to the vectors in the matrix. Then we will multiply the scalars into the vectors to get new vectors. Then we will add the vectors together. Then we will return the result in a list.
 
 Pseudocode:
-def matrix_vector_mult(x, y, z, vector_a, vector_b, vector_c):
-#Set matrix_a as the vectors a, b and c.
-    matrix_a = [vector_a, vector_b, vector_c]
-#For clarification, vector_01 is x, y, and z.
-    vector_01 = [x, y, z]
+def matrix_vector_mult(vector_a, matrix_A):
     result = []
 #Referencing problem 0 and 1 we make the for loop apply the correct values to the new vectors.
-    for i in range(len(matrix_a)):
-        vector_a[i] = vector_a[i]*x + vector_a[i]*y + vector_a[i]*z
-        vector_b[i] = vector_b[i]*x + vector_b[i]*y + vector_b[i]*z
-        vector_c[i] = vector_c[i]*x + vector_c[i]*y + vector_c[i]*z
+    for x in range(len(matrix_A)):
+        y = scalar_vector_mult(vector_a[x],matrix_A[x])
 #Apply the new vectors to the result.
-    result.append(vector_a)
-    result.append(vector_b)
-    result.append(vector_c)
+        result.append(y)
 #Return desired result.
     return result
 """
-def matrix_vector_mult(x, y, z, vector_a, vector_b, vector_c):
-    matrix_a = [vector_a, vector_b, vector_c]
+def matrix_vector_mult(vector_a, matrix_A):
     result = []
-    for i in range(len(matrix_a)):
-        vector_a[i] = vector_a[i]*x + vector_a[i]*y + vector_a[i]*z
-        vector_b[i] = vector_b[i]*x + vector_b[i]*y + vector_b[i]*z
-        vector_c[i] = vector_c[i]*x + vector_c[i]*y + vector_c[i]*z
-    result.append(vector_a)
-    result.append(vector_b)
-    result.append(vector_c)
+    for x in range(len(matrix_A)):
+        y = scalar_vector_mult(vector_a[x],matrix_A[x])
+        
+        result.append(y)
     return result
+    
 
-print(matrix_vector_mult(3, 5, 7, [1,2,3], [3,2,1], [2,1,3]))
-print("The answer should be [[15, 30, 45], [45, 30, 15], [30, 15, 45]]")
-print(matrix_vector_mult(2, 4, 6, [1,2,3], [3,2,1], [2,1,3]))
-print("The answer should be [[12, 24, 36], [36, 24, 12], [24, 12, 36]]")
+print(matrix_vector_mult([2,1],[[3,2],[4,5]]))
+print("The answer should be ")
+print(matrix_vector_mult([5,2],[[1,1],[3,5]]))
+print("The answer should be ")
 
 #Problem 05
 """

@@ -102,7 +102,7 @@ print("The answer should be [40,80,100]")
 #Problem 02
 """
 Q1: What do we have?
-We have a positive integer and a 3x3 matrix.
+We have a positive integer and a matrix.
 Q2: What do we want?
 We want to multiply the matrix by the positive integer and store the result as a list.
 Q3: How do we get there?
@@ -135,7 +135,7 @@ print("The answer should be [[15,15],[25,25]]")
 #Problem 03
 """
 Q1: What do we have?
-We have two 3x3 matrices.
+We have two matrices.
 Q2: What do we want?
 We want the sum of the two matrices stored as a list.
 Q3: How do we get there?
@@ -170,7 +170,7 @@ print("The answer should be [[11, 5], [12, 7], [7, 11]]")
 #Problem 04
 """
 Q1: What do we have?
-We have a 3x3 matrix and a vector.
+We have a matrix and a vector.
 Q2: What do we want?
 We want to get the multiple of the two using a linear combination of columns method.
 Q3: How do we get there?
@@ -204,7 +204,7 @@ print("The answer should be ")
 #Problem 05
 """
 Q1: What do we have?
-We have two 3x3 matrices.
+We have two matrices.
 Q2: What do we want?
 We want to get the multiple of the two using a prior algorithm.
 Q3: How do we get there?

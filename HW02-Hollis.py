@@ -183,6 +183,8 @@ def matrix_vector_mult(vector_a, matrix_A):
     for x in range(len(matrix_A)):
         y = scalar_vector_mult(vector_a[x],matrix_A[x])
 #Apply the new vectors to the result.
+    for z in range(len(y)):
+        y = add_vectors(y[z],y[z])
         result.append(y)
 #Return desired result.
     return result
@@ -191,15 +193,16 @@ def matrix_vector_mult(vector_a, matrix_A):
     result = []
     for x in range(len(matrix_A)):
         y = scalar_vector_mult(vector_a[x],matrix_A[x])
-        
+    for z in range(len(y)):
+        y = add_vectors(y[z],y[z])
         result.append(y)
     return result
     
 
 print(matrix_vector_mult([2,1],[[3,2],[4,5]]))
-print("The answer should be ")
+print("The answer should be [10,9], but the algorithm gives [8,10].")
 print(matrix_vector_mult([5,2],[[1,1],[3,5]]))
-print("The answer should be ")
+print("The answer should be [11,15], but the algorithm gives [12,20]")
 
 #Problem 05
 """

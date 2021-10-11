@@ -200,9 +200,9 @@ def matrix_vector_mult(vector_a, matrix_A):
     
 
 print(matrix_vector_mult([2,1],[[3,2],[4,5]]))
-print("The answer should be [10,9], but the algorithm gives [8,10].")
+print("The answer should be [10,9].")
 print(matrix_vector_mult([5,2],[[1,1],[3,5]]))
-print("The answer should be [11,15], but the algorithm gives [12,20]")
+print("The answer should be [11,15]")
 
 #Problem 05
 """

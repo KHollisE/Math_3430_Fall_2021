@@ -126,16 +126,11 @@ def scalar_matrix_mult(n, vector_01, vector_02, vector_03):
 #Return the desired result.
     return result
 """
-def scalar_matrix_mult(n, vector_01, vector_02, vector_03):
-    matrix_a = [vector_01, vector_02, vector_03]
-    result = []
-    for j in range(len(matrix_a)):
-            vector_01[j] *= n
-            vector_03[j] *= n
-            vector_02[j] *= n
-    result.append(vector_01)
-    result.append(vector_02)
-    result.append(vector_03)
+def scalar_matrix_mult(n, matrix_a):
+    result = scalar_vector_mult(n,matrix_a[0])
+    for x in range(len(matrix_a)):
+        y = scalar_vector_mult(n, matrix_a[x])
+    result.append(y)
     return result
 
 print(scalar_matrix_mult(10, [1,2,3],[2,3,1],[4,5,6]))

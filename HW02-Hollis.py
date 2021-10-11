@@ -211,40 +211,31 @@ We have two matrices.
 Q2: What do we want?
 We want to get the multiple of the two using a prior algorithm.
 Q3: How do we get there?
-Using the algorithm from problem #4. We will split one of the matrices into vectors and then multiply those individual vectors into the remaining matrix. Then we will return the result.
+Using the algorithm from problem #4. We will split one of the matrices into vectors and then multiply
+those individual vectors into the remaining matrix. Then we will return the result.
 
 Pseudocode:
-def matrix_mult(vector_01, vector_02, vector_03, vector_a, vector_b, vector_c):
-#Set matrix_b as the vectors a, b, and c.
-    matrix_b = [vector_a, vector_b, vector_c]
+def matrix_mult(matrix_A,matrix_B):
+#Make an empty set
     result = []
 #Multiply the vectors of each matrix into each other.
-    for i in range(len(matrix_b)):
-       vector_a[i] = vector_a[i]*x + vector_a[i]*y + vector_a[i]*z + vector_a[i]*j + vector_a[i]*k + vector_a[i]*l + vector_a[i]*p + vector_a[i]*o + vector_a[i]*u
-       vector_b[i] = vector_b[i]*x + vector_b[i]*y + vector_b[i]*z + vector_b[i]*j + vector_b[i]*k + vector_b[i]*l + vector_b[i]*p + vector_b[i]*o + vector_b[i]*u
-       vector_c[i] = vector_c[i]*x + vector_c[i]*y + vector_c[i]*z + vector_c[i]*j + vector_c[i]*k + vector_c[i]*l + vector_c[i]*p + vector_c[i]*o + vector_c[i]*u
+    for x in range(len(matrix_A)):
+        y = matrix_vector_mult(matrix_A[x],matrix_B)
 #Apply the answers to the result.
-    result.append(vector_a)
-    result.append(vector_b)
-    result.append(vector_c)
+        result.append(y)
 #Return the desired result.
     return result
 """
-def matrix_mult(vector_01, vector_02, vector_03, vector_a, vector_b, vector_c):
-    matrix_b = [vector_a, vector_b, vector_c]
+def matrix_mult(matrix_A, matrix_B):
     result = []
-    for i in range(len(matrix_b)):
-       vector_a[i] *= vector_01[i]
-       vector_b[i] *= vector_02[i]
-       vector_c[i] *= vector_03[i]
-    result.append(vector_a)
-    result.append(vector_b)
-    result.append(vector_c)
+    for x in range(len(matrix_A)):
+        y = matrix_vector_mult(matrix_A[x],matrix_B)
+        result.append(y)
     return result
 
-print(matrix_mult([3,4,5], [1,2,7], [9,6,8], [1,2,3], [2,1,3], [3,2,1]))
+print(matrix_mult([[3,4,5], [1,2,7], [9,6,8]], [[1,2,3], [2,1,3], [3,2,1]]))
 print("The answer should be [[3, 8, 15], [2, 2, 21], [27, 12, 8]]")
-print(matrix_mult([4,5,6], [7,8,9], [1,2,3], [2,1,3], [10,5,1], [3,2,1]))
+print(matrix_mult([[4,5,6], [7,8,9], [1,2,3]], [[2,1,3], [10,5,1], [3,2,1]]))
 print("The answer should be [[8, 5, 18], [70, 40, 9], [3, 4, 3]]")
 
 #Test Inputs

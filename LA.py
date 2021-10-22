@@ -131,7 +131,7 @@ def matrix_vector_mult(vector_a: list, matrix_A: list)->list:
 
 def matrix_mult(matrix_A: list, matrix_B: list):
     """
-    Multiples two matrices.
+    Multiplies two matrices.
     
     Creates an empty list. Using a for loop it take the algorithm from previous
     problem and takes the result of it with corresponding values and appends it to the
@@ -148,3 +148,116 @@ def matrix_mult(matrix_A: list, matrix_B: list):
     for x in range(len(matrix_A[0])):
         result.append(matrix_vector_mult(matrix_B[x],matrix_A))
     return result
+
+
+
+
+def absolute_value(scalar: complex)->float:
+    """
+    Takes the absolute value of complex and real numbers
+    
+    Takes the scalar input and gets the conjugate. Then it multiplies the
+    conjugate into the orginal input, and then take the square root of the
+    product. Then returns the value.
+    
+    Args:
+        scalar: A complex or real number.
+    Returns:
+        The absolute value of the input.
+    """
+    z = scalar.conjugate()
+    x: float = (z*scalar)**(1/2)
+    return x.real
+
+
+
+
+def p_norm(vector: list, scalar: float)->float:
+    """
+    Gives the p-norm of a vector.
+    
+    Sets a result equal to zero. Then takes the absolute value of the indices 
+    in the vector and then puts that value to the power of the scalar input. 
+    Then it sums all the indices together. Returns result.
+    
+    Args:
+        vector: A vector stored as a list.
+        scalar: A scalar stored as a float.
+    Returns:
+        The p-norm of the vector.
+    """
+    result: float = 0
+    for index in vector:
+        y = (absolute_value(index))**scalar
+        result = result + y
+    return result**(1/scalar)
+
+
+
+
+def infinity_norm(vector: list)->float:
+    """
+    Gives the infinity-norm of a vector.
+    
+    Sets a result equal to an empty list of float values. Then it takes the 
+    absolute value of the indices in the vector input and appends that to the
+    empty set result. Then it return the indices value that is the greatest.
+    
+    Args:
+        vector: A vector stored as a list.
+    Returns:
+        The infinity norm of a vector.
+    """
+    result: list[float] = []
+    for index in vector:
+        y = absolute_value(index)
+        result.append(y)
+    return max(result)
+
+
+
+
+def boolean_norm(vector: list, boolean: bool = False, scalar: float = 2)->float:
+    """
+    Gives the p-norm or infinity-norm of a vector.
+    
+    Determines if boolean input is true. If it is then the funciton returns the
+    infinity-norm. If not it returns the p-norm.
+    
+    Args:
+        vector: A vector stored as a list.
+        boolean: A boolean defaultly stored as False.
+        scalar: A scalar stored as a float.
+    Returns:
+        The infinity-norm or the p-norm.
+    """
+    if boolean == True:
+        x: list[float] = infinity_norm(vector)
+    else:
+        x: float = p_norm(vector, scalar)
+    return x
+
+
+
+
+def inner_product(vector_a: list, vector_b: list)->float:
+    """
+    Gives the inner product of two vectors.
+    
+    Creates a result value equal to zero. Then with a for loop multiplies the
+    two vectors respective index into each other. Then the sum of the products 
+    is returned.
+    
+    Args:
+        vector_a: A vector stored as a list.
+        vector_b: A vector, of same length a vector_a, stored as a list.
+    Returns:
+        The inner product.
+    """
+    result: float = 0
+    for index in range(len(vector_a)):
+        y = vector_a[index]*vector_b[index]
+        result = result + y
+    return result
+
+

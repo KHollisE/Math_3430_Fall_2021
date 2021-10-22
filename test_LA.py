@@ -6,6 +6,8 @@ import pytest
 pytest.main()
 
 n = 4
+test_complex = 5+6j
+test_complex_vector = [1,2,5+6j]
 
 test_vector_01 = [2,1]
 test_vector_02 = [3,2]
@@ -50,3 +52,47 @@ def test_matrix_mult_1():
     assert LA.matrix_mult(test_matrix_01,test_matrix_02) == [[7,7],[29,31]]
 def test_matrix_mult_2():
     assert LA.matrix_mult(test_matrix_01,test_matrix_03) == [[14,14],[39,40]]
+
+#Tests for absolute_value function
+def test_absolute_value_1():
+    assert LA.absolute_value(n) == 4.0
+def test_absolute_value_2():
+    assert LA.absolute_value(test_complex) == 7.810249675906654
+
+#Tests for p_norm function.
+def test_p_norm_1():
+    assert LA.p_norm(test_vector_01, 2) == 2.23606797749979
+def test_p_norm_2():
+    assert LA.p_norm(test_vector_02, 3) == 3.2710663101885897
+
+#Tests for infinity_norm function.
+def test_infinity_norm_1():
+    assert LA.infinity_norm(test_vector_02) == 3.0
+def test_infinity_norm_2():
+    assert LA.infinity_norm(test_complex_vector) == 7.810249675906654
+
+#Tests for boolean_norm function.
+def test_boolean_norm_1():
+    assert LA.boolean_norm(test_vector_01) == 2.23606797749979
+def test_boolean_norm_2():
+    assert LA.boolean_norm(test_complex_vector, True) == 7.810249675906654
+
+#Tests for inner_product function.
+def test_inner_product_1():
+    assert LA.inner_product(test_vector_01, test_vector_02) == 8
+def test_inner_product_2():
+    assert LA.inner_product(test_complex_vector,[1,2,3] ) == (20+18j)
+
+
+
+
+
+
+
+
+
+
+
+
+
+

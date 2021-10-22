@@ -12,6 +12,7 @@ test_complex_vector = [1,2,5+6j]
 test_vector_01 = [2,1]
 test_vector_02 = [3,2]
 test_vector_03 = [1,1]
+test_vector_04 = [1,2,3]
 
 test_matrix_01 = [[3,2],[4,5]]
 test_matrix_02 = [[1,1],[3,5]]
@@ -81,7 +82,7 @@ def test_boolean_norm_2():
 def test_inner_product_1():
     assert LA.inner_product(test_vector_01, test_vector_02) == 8
 def test_inner_product_2():
-    assert LA.inner_product(test_complex_vector,[1,2,3] ) == (20+18j)
+    assert LA.inner_product(test_complex_vector,test_vector_04) == (20+18j)
 
 
 

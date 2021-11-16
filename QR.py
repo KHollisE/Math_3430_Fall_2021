@@ -69,7 +69,7 @@ def sign(x: int)->int:
     -1 or 1.
     
     Args:
-        x: A number stored as a float
+        x: A number stored as a int
     Returns:
         Either -1 or 1
     """
@@ -155,8 +155,16 @@ def Q_build(mtx: list, n: int)->list:
     """
     Creates a part of the householder function
     
-    Finds the initial value of the matrix though the F_builder function. 
-    Multiplies each corresponding
+   Create a matrix A of zeroes. Set a for loop with inner for loop that checks
+   for if the range is overshot. Then get the refleciton vector for the recently
+   replaced list. Then take the F_builder of that value. Set Q to the identity
+   matrix. Go to a smaller section of the matrix and impliment the F_builder 
+   into the Identity matrix. Then return Q.
+   
+   Args:
+       mtx: A matrix stored as a list
+   Returns:
+       The Q value to solve for R in householder.
     """
   
     A:list = [[0 for j in range (n, len(mtx[i]))]for i in range(n,len(mtx))]    
@@ -220,7 +228,19 @@ def conjugate_transpose(matrix_1: list)->list:
 
 def householder(matrix_A: list)->list:
     """
+    Gives the householder QR factorization
     
+    Takes R as a copy of the input matrix. Create an empty set. Call Q_build
+    to create values to solve for R with matrix multiplication. Append the 
+    values created in Q_build to empty list. Set Q equal to the last index in 
+    new filled list. Take the cojugate transpose of the first vector of the 
+    new list. Take the matrix multiple of Q and the conjugate transpose of the
+    indices of the new list. Return the QR factorization.
+    
+    Args:
+        matrix_A: A matrix stored as a list.
+    Returns:
+        The QR factorization.
     """
     R: list = deep_copy(matrix_A)
     Q_list: list = []
@@ -237,11 +257,10 @@ def householder(matrix_A: list)->list:
     return Q, R
 
 #A[0][0:] brings out a subvector of a matrix.
-
+"""
 print(householder([[2,2,1],[-2,1,2],[18,0,0]]))
 print(householder([[1,5],[3,7]]))
     
-"""
 print(F_builder([4.8, 2.4]))
   
 print(vec_vec_mult([5,2,1],[5,2,1]))

@@ -176,7 +176,7 @@ def Q_build(mtx: list, n: int)->list:
     v = reflect_vector(A[0])         
     f = F_builder(v)     
     Q = Identity(len(mtx))     
-    for i in range(n,len(Q)):         
+    for i in range(n,len(Q[0])):         
         for j in range(n,len(Q)):             
             Q[i][j] = f[i-n][j-n]     
     return Q
@@ -194,9 +194,9 @@ def deep_copy(matrix_1: list)->list:
     Returns:
         A copy of the input matrix.
     """
-    empty: list = [[0 for element in range(len(matrix_1[0]))]for index in range(len(matrix_1))]
-    for x in range(len(matrix_1[0])):
-        for y in range(len(matrix_1[0])):
+    empty: list = [[0 for element in range(len(matrix_1))]for index in range(len(matrix_1[0]))]
+    for x in range(len(matrix_1)):
+        for y in range(len(matrix_1)):
             empty[x][y] = matrix_1[x][y]
     return empty
 
@@ -215,16 +215,13 @@ def conjugate_transpose(matrix_1: list)->list:
     Returns:
         The conjugate transpose of an input matrix.
     """
-    empty: list = [[0 for element in range(len(matrix_1[0]))]for index in range(len(matrix_1))]
-    empty_2: list = [[0 for element in range(len(matrix_1[0]))]for index in range(len(matrix_1))]
-    for x in range(len(matrix_1[0])):
-        for y in range(len(matrix_1[0])):
-            empty[x][y] = (matrix_1[x][y].conjugate())
+    empty: list = [[0 for element in range(len(matrix_1))]for index in range(len(matrix_1[0]))]
     for i in range(len(matrix_1[0])):
         for j in range(len(matrix_1)):
-            empty_2[i][j] = empty[j][i]
+            empty[i][j] = matrix_1[j][i].conjugate()
             
-    return empty_2
+    return empty
+
 
 def householder(matrix_A: list)->list:
     """

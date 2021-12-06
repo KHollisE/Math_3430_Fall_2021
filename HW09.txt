@@ -1,0 +1,1 @@
+﻿On a computer there are a finite subset of real numbers that can be represented, that contain gaps between the numbers, and those represented numbers cannot be arbitrarily large or small. These cases can be solved with the use of float point arithmetic, which can cover for the margin of error shown in these three points.

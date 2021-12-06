@@ -1,0 +1,1 @@
+﻿I was recently shown a maze solving program and I believe that something like that would be interesting to work on as a project. The way that the process is done is interesting and brings to attention the use of commands that allow a program to function even through error.

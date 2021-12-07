@@ -38,7 +38,7 @@ def scalar_vector_mult(n: float, vector_01: list)->list:
     Returns:
         The product result of the input n into input vector.
     """
-    result = []
+    result: list = []
     #Following format of 0 for element we create a for loop to multiply scalars 
     #into the vectors.
     for i in vector_01:

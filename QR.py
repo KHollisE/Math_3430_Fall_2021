@@ -91,9 +91,9 @@ def reflect_vector(vector_1: list)->list:
     Returns:
         Reflection of input vector
     """
-    e = [0 for element in range(len(vector_1))]
+    e: list = [0 for element in range(len(vector_1))]
     e[0] = 1
-    v = LA.add_vectors(LA.scalar_vector_mult(sign(vector_1[0])*LA.boolean_norm(vector_1),e),vector_1)
+    v: list = LA.add_vectors(LA.scalar_vector_mult(sign(vector_1[0])*LA.boolean_norm(vector_1),e),vector_1)
     return v
 
 def Identity(size: int)->int:
@@ -146,9 +146,9 @@ def F_builder(vector_1: list)->list:
     Returns:
         The F_k value.
     """
-    s = -2/(LA.boolean_norm(vector_1))**2
-    x = LA.scalar_matrix_mult(s, vec_vec_mult(vector_1, vector_1))
-    y = LA.matrix_addition(Identity(len(vector_1)), x)
+    s: list = -2/(LA.boolean_norm(vector_1))**2
+    x: list = LA.scalar_matrix_mult(s, vec_vec_mult(vector_1, vector_1))
+    y: list = LA.matrix_addition(Identity(len(vector_1)), x)
     return y
 
 def Q_build(mtx: list, n: int)->list:
@@ -254,17 +254,21 @@ def householder(matrix_A: list)->list:
     return Q, R
 
 #A[0][0:] brings out a subvector of a matrix.
+
+
 """
 print(householder([[2,2,1],[-2,1,2],[18,0,0]]))
 print(householder([[1,5],[3,7]]))
     
-print(F_builder([4.8, 2.4]))
-  
-print(vec_vec_mult([5,2,1],[5,2,1]))
+print(F_builder([2.4, 4.8]))
+ 
+print(vec_vec_mult([2.414213562373095, 0.0, 1.0],[2.414213562373095, 0.0, 1.0]))
 
-print(reflect_vector([2,2,1]))
+print(Q_build([[2,-1,1],[1,0,3],[1,4,2]], 1))
 
-print(conjugate_transpose([[1,3],[2,5]]))
+print(reflect_vector([1,0,1]))
+
+print(conjugate_transpose([[1,-1,1],[1,0,1],[1,1,2]]))
 
 print(Q_orthonormal([[1,-1,1],[1,0,1],[1,1,2]]))
 print(Q_orthonormal([[2,-1,1],[1,0,3],[1,4,2]]))

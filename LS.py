@@ -49,7 +49,7 @@ def least_squares(matrix_a: list, vector_a: list)->list:
     Q,R = QR.stable_gram(matrix_a)
     Q_trans = QR.conjugate_transpose(Q)
     Q_b = LA.matrix_vector_mult(vector_a, Q_trans)
-    result = back_sub(R, Q_b)
+    result: list = back_sub(R, Q_b)
     return result
 
 
